@@ -1,0 +1,43 @@
+
+.markdown-body {
+    // Tables
+    table {
+      display: block;
+      width: 100%; // keep for backwards compatibility
+      width: max-content;
+      max-width: 100%;
+      overflow: auto;
+      margin: auto;
+  
+      th {
+        font-weight: 600;
+      }
+  
+      th,
+      td {
+        padding: 6px 13px;
+        border: 1px solid #d1d9e0;
+    }
+  
+      td {
+        > :last-child {
+          margin-bottom: 0;
+        }
+      }
+  
+      tr {
+        background-color: white;
+        // stylelint-disable-next-line primer/borders
+        border-top: 1px solid var(--borderColor-muted, var(--color-border-muted));
+  
+        &:nth-child(2n) {
+          background-color: #f6f8fa;
+        }
+      }
+  
+      img {
+        background-color: transparent;
+      }
+    }
+  }
+  

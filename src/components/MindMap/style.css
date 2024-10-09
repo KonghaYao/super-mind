@@ -1,0 +1,14 @@
+.mind-map-section {
+    --control-box-shadow: inset 0px 0px 3px 0px rgba(255, 255, 255, 0.1),
+        0px 0px 3px 0px rgba(0, 0, 0, 0.14), 0px 8px 40px 0px rgba(0, 0, 0, 0.06);
+}
+.mind-map-section .control-box {
+    box-shadow: var(--control-box-shadow);
+    pointer-events: auto;
+    position: fixed;
+    @apply rounded border-2 border-gray-100 w-fit;
+}
+
+.smm-richtext-node-edit-wrap {
+    box-shadow: none !important;
+}
