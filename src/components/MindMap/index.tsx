@@ -29,7 +29,7 @@ export const MindMapUI = (props: { mindMapSystem: MindMapSystem }) => {
 
     const initChart = () =>
         saveControl.load().catch((e) => {
-            mindMap()!.setData({
+            mindMap()?.setData({
                 data: {
                     text: 'Root',
                 },

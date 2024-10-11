@@ -1,18 +1,26 @@
 import { StorageBackend, decodeStorageKey } from '../StorageBackend';
+import LF from 'localforage';
+const localforage = LF.createInstance({
+    driver: LF.INDEXEDDB,
+    name: 'super-mind-db',
+    version: 1.0,
+    storeName: 'super-mind-db',
+    description: 'super-mind-db'
+})
 
-export class LocalStorageBackend implements StorageBackend {
+export class LocalBackend implements StorageBackend {
     async setData(uri: string, data: any): Promise<boolean> {
-        localStorage.setItem(uri, JSON.stringify(data));
+        await localforage.setItem(uri, data);
         return true;
     }
     async getData(uri: string): Promise<any> {
-        const data = localStorage.getItem(uri);
+        const data = await localforage.getItem<any>(uri);
         if (!data) throw new Error('data not found ' + uri);
-        return JSON.parse(data);
+        return data;
     }
     async listData(params: { baseUri: string; limit: number; page: number }) {
         const Uri = decodeStorageKey(params.baseUri);
-        const keys = Object.keys(localStorage).filter((key) => key.startsWith(Uri.protocol));
+        const keys = (await localforage.keys()).filter((key) => key.startsWith(Uri.protocol));
         const data = keys.map((key) => {
             return {
                 uri: key,

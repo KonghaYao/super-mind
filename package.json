@@ -21,6 +21,7 @@
         "i18nation": "^1.5.0",
         "i18next": "^23.15.2",
         "lenis": "^1.1.13",
+        "localforage": "^1.10.0",
         "node-fetch": "^3.3.2",
         "prettier": "^3.3.3",
         "remark-mdx-toc": "^0.3.1",
